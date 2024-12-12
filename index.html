@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Responsive Card/Image Slider Website | With Modals And Content Search
+      Function - Html, Css & Javascript
+    </title>
+    <!--========== Swiper CSS  ==========-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <!--========== Unicons iconscout ==========-->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.8/css/line.css"
+    />
+  </head>
+
+  <body>
+    <section class="main">
+      <header>
+        <div class="logo">
+          <a href="">
+            <span class="lg-font">Solar</span>
+            <span class="sm-font">System</span>
+          </a>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 10a7 7 0 1 0 14 0a7 7 0 1 0-14 0m18 11l-6-6"
+              />
+            </svg>
+            <input
+              type="text"
+              class="search-input"
+              placeholder="Search Planets..."
+            />
+          </div>
+          <div class="search-results"></div>
+        </div>
+        <div class="main-menu">
+          <a href="#" class="menu-btn">
+            <span>Menu </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+            >
+              <g
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+              >
+                <path
+                  d="M8 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z"
+                />
+                <path
+                  d="M4 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"
+                />
+              </g>
+            </svg>
+          </a>
+          <div class="menu-container">
+            <div class="menu-window">
+              <div class="menu-box">
+                <div class="menu-inner">
+                  <div class="menu-close-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.5"
+                        d="M19 5L5 19M5 5l14 14"
+                        color="currentColor"
+                      />
+                    </svg>
+                    <span>Close</span>
+                  </div>
+                  <div class="menu-bg-icon">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="200"
+                      height="200"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M8 6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z"
+                        />
+                        <path
+                          d="M4 10a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"
+                        />
+                      </g>
+                    </svg>
+                  </div>
+                  <nav class="menu-items">
+                    <a href="#">
+                      <img src="./img/icons/home.svg" alt="Home Img" />
+                      <span>Home</span></a
+                    >
+                    <a href="#">
+                      <img src="./img/icons/explore.svg" alt="Explore Img" />
+                      <span>Explore</span>
+                    </a>
+                    <a href="#">
+                      <img src="./img/icons/gallery.svg" alt="Gallery Img" />
+                      <span>Gallery</span>
+                    </a>
+                    <a href="#">
+                      <img src="./img/icons/about.svg" alt="About Img" />
+                      <span>About</span></a
+                    >
+                    <a href="">
+                      <img src="./img/icons/contact.svg" alt="Contact Img" />
+                      <span>Contact</span></a
+                    >
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="slide-container">
+        <div class="swiper cardSwiper">
+          <div class="swiper-wrapper" id="CardContainer">
+            <div class="swiper-slide">
+              <div class="card mercury-bg" data-title="mercury">
+                <div class="card-img">
+                  <img
+                    src="./img/mercuriu.png"
+                    alt="Mercury Planet"
+                    class="mercury-img"
+                  />
+                  <span class="planet-number">1</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Mercury</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card venus-bg" data-title="venus">
+                <div class="card-img">
+                  <img
+                    src="./img/venera.png"
+                    alt="Venus Planet"
+                    class="venus-img"
+                  />
+                  <span class="planet-number">2</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Venus</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card earth-bg" data-title="earth">
+                <div class="card-img">
+                  <img
+                    src="./img/earth.png"
+                    alt="Earth Planet"
+                    class="earth-img"
+                  />
+                  <span class="planet-number">3</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Earth</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card mars-bg" data-title="mars">
+                <div class="card-img">
+                  <img
+                    src="./img/mars.png"
+                    alt="Mars Planet"
+                    class="mars-img"
+                  />
+                  <span class="planet-number">4</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Mars</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card jupiter-bg" data-title="jupiter">
+                <div class="card-img">
+                  <img
+                    src="./img/jupiter.png"
+                    alt="Jupiter Planet"
+                    class="jupiter-img"
+                  />
+                  <span class="planet-number">5</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Jupiter</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card saturn-bg" data-title="saturn">
+                <div class="card-img">
+                  <img
+                    src="./img/saturn.png"
+                    alt="Saturn Planet"
+                    class="saturn-img"
+                  />
+                  <span class="planet-number">6</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Saturn</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card uranus-bg" data-title="uranus">
+                <div class="card-img">
+                  <img
+                    src="./img/uran.png"
+                    alt="Uranus Planet"
+                    class="uranus-img"
+                  />
+                  <span class="planet-number">7</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Uranus</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="card neptune-bg" data-title="neptune">
+                <div class="card-img">
+                  <img
+                    src="./img/neptun.png"
+                    alt="Neptune Planet"
+                    class="neptune-img"
+                  />
+                  <span class="planet-number">8</span>
+                </div>
+                <div class="card-content">
+                  <div class="info">
+                    <h2>Neptune</h2>
+                    <div class="sub-info">
+                      <span>Planet</span>
+                      <h4>Solar System</h4>
+                    </div>
+                  </div>
+                  <div class="read-more-btn">
+                    <a href="#">
+                      <span>Read More</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          fill="currentColor"
+                          d="M6.23 20.23L8 22l10-10L8 2L6.23 3.77L14.46 12z"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="slider-nav">
+          <div class="swiper-button-next">
+            <span>Next</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="m8.006 21.308l-1.064-1.064L15.187 12L6.942 3.756l1.064-1.064L17.314 12z"
+              />
+            </svg>
+          </div>
+          <div class="swiper-button-prev">
+            Prev
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+            >
+              <path
+                fill="currentColor"
+                d="M10 21.308L.692 12L10 2.692l1.064 1.064L2.819 12l8.244 8.244z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="main-media-links">
+        <a href="#"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m13 2h-2.5A3.5 3.5 0 0 0 12 8.5V11h-2v3h2v7h3v-7h3v-3h-3V9a1 1 0 0 1 1-1h2V5z"
+              fill="currentColor"
+            /></svg
+          ><span>Facebook</span></a
+        >
+        <a href="#"
+          ><svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2m12.71 6.33c.48-.4 1.04-.88 1.29-1.41c-.41.21-.9.34-1.44.41c.5-.36.91-.83 1.12-1.47c-.52.28-1.05.52-1.71.64c-1.55-1.87-5.26-.35-4.6 2.45c-2.61-.16-4.2-1.34-5.52-2.79c-.75 1.22-.1 3.07.79 3.58c-.46-.03-.81-.17-1.14-.33c.04 1.54.89 2.28 2.08 2.68c-.36.07-.76.09-1.14.03c.37 1.07 1.14 1.74 2.46 1.88c-.9.76-2.56 1.29-3.9 1.08c1.15.73 2.46 1.31 4.28 1.23c4.41-.2 7.36-3.36 7.43-7.98z"
+              fill="currentColor"
+            /></svg
+          >Twitter</a
+        >
+      </div>
+
+      <div class="modal-container">
+        <div class="modal-box mercury-bg" id="modal_mercury">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Mercury</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/mercuriu.png" alt="Mercury" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Mercury</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Mercury is the first planet from the Sum the smallest in the
+                  Solar System. In English, it is named after the Roman god
+                  Mercurius (Mercury), god of commerce and communication, and
+                  the messenger of the gods. Mercury is classified as a
+                  terrastrial planet, with roughly the same surface as Mars. The
+                  surface of Mercury is heavily cratered, as a result of
+                  countless impact events that have accumulated over billions of
+                  years. Its largest crater, Caliris Planitia, has a diameter of
+                  1,550 km (960 mi) and one-third the diameter of the planet
+                  (4,880 km or 3,030 mi). Similarly to the Earth's Moon,
+                  Mercury's surface displays an expansive rupes system generated
+                  from thrust faults and bright ray systems formed by impact
+                  event remnants
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>88 days</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>0 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>58 million km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>59d 0h 0m</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>3.7 m/s <sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Surface area:</h5>
+                    <span>74.8 million km<sup>2</sup></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box venus-bg" id="modal_venus">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Venus</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/venera.png" alt="Venus" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Venus</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Venus is the second planet from the Sun and is the hottest
+                  planet in the Solar System due to its dense atmosphere. Named
+                  after the Roman goddess of love and beauty, Venus is similar
+                  in size to Earth but has a vastly different environment.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>225 days</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>0 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>108 million km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>243 days</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>8.87 m/s <sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Surface area:</h5>
+                    <span>460.2 million km<sup>2</sup></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box earth-bg" id="modal_earth">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Earth</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/earth.png" alt="Earth" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Earth</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Earth is the third planet from the Sun and the only known
+                  place in the universe where life exists. It has a diverse
+                  climate, abundant water, and a protective atmosphere that
+                  supports a vast range of ecosystems.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>365.25 days</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>1 moon</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>149.6 million km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>24 hours</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>9.8 m/s</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Surface area:</h5>
+                    <span>460.2 million km<sup>2</sup></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box mars-bg" id="modal_mars">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Mars</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/mars.png" alt="Mars" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Mars</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Mars, the fourth planet from the Sun, is often called the "Red Planet" due to its reddish appearance caused by iron oxide on its surface. It has the largest volcano in the Solar System, Olympus Mons, and a thin atmosphere primarily composed of carbon dioxide.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>687 days</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>2 moons (Phobos and Deimos)</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>228 million km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>24.6 hours</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>3.71 m/s<sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Surface area:</h5>
+                    <span>144.8 million km<sup>2</sup></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box jupiter-bg" id="modal_jupiter" >
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Jupiter</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/jupiter.png" alt="Jupiter" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Jupiter</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Jupiter is the largest planet in the Solar System and is known for
+                  its Great Red Spot, a massive storm. It is a gas giant with a thick
+                  atmosphere primarily composed of hydrogen and helium, and it is home
+                  to dozens of moons.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>12 years</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>79 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>778 million km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>9 hours, 56 minutes</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>24.79 m/s<sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Diameter:</h5>
+                    <span>139,820 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box saturn-bg" id="modal_saturn">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="1.5"
+                  d="M19 5L5 19M5 5l14 14"
+                  color="currentColor"
+                />
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Saturn</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/saturn.png" alt="Saturn" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Saturn</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Saturn is the sixth planet from the Sun and is famous for its
+                  spectacular ring system. It is a gas giant composed mainly of hydrogen
+                  and helium and has over 80 moons, including the largest, Titan.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"
+                    />
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>29.5 years</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>83 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>1.4 billion km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>10 hours, 42 minutes</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>10.44 m/s<sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Diameter:</h5>
+                    <span>120,536 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box uranus-bg" id="modal_uranus">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor"/>
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Uranus</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/uran.png" alt="Uranus" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Uranus</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Uranus is the seventh planet from the Sun and is known for its unique tilt, rotating sideways on its axis. It is an ice giant composed mostly of water, ammonia, and methane ice.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"/>
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>84 years</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>27 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>2.9 billion km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>17 hours, 14 minutes</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>8.69 m/s<sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Diameter:</h5>
+                    <span>50,724 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-box neptune-bg" id="modal_neptune">
+          <div class="modal-content">
+            <a href="#" class="modal-close-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24">
+                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 5L5 19M5 5l14 14" color="currentColor"/>
+              </svg>
+              <span>Close</span>
+            </a>
+            <div class="modal-inner">
+              <h2 class="modal-bg-title">Neptune</h2>
+              <div class="modal-media-icons">
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4zm9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3"
+                    />
+                  </svg>
+                </a>
+                <a href="#">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"
+                    />
+                  </svg>
+                </a>
+              </div>
+              <div class="modal-image-area">
+                <img src="./img/neptun.png" alt="Neptune" class="modal-img" />
+              </div>
+              <div class="modal-text-content">
+                <h1 class="modal-title">Neptune</h1>
+                <div class="modal-title-sub">
+                  <span>Planet</span>
+                  <h4>Solar System</h4>
+                </div>
+                <p>
+                  Neptune is the eighth and farthest planet from the Sun. Known for its deep blue color, it is an ice giant and has the most extreme winds in the Solar System.
+                </p>
+                <a href="" class="modal-see-more-btn">
+                  <span>See More</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="currentColor" d="M14 16.94v-4H5.08l-.03-2.01H14V6.94l5 5Z"/>
+                  </svg>
+                </a>
+                <div class="planet-facts">
+                  <div class="fast">
+                    <h5>Orbital Period:</h5>
+                    <span>165 years</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Moons:</h5>
+                    <span>14 moons</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Distance from Sun:</h5>
+                    <span>4.5 billion km</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Length of day:</h5>
+                    <span>16 hours, 6 minutes</span>
+                  </div>
+                  <div class="fast">
+                    <h5>Gravity:</h5>
+                    <span>11.15 m/s<sup>2</sup></span>
+                  </div>
+                  <div class="fast">
+                    <h5>Diameter:</h5>
+                    <span>49,244 km</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
